@@ -1,0 +1,32 @@
+{
+  "name": "kraken-e2e",
+  "version": "1.0.0",
+  "description": "Pruebas E2E utilizando Kraken",
+  "main": "index.js",
+  "scripts": {
+    "cypress:vrt": "node cypress_vr.js",
+    "kraken:vrt": "node kraken_vr.js",
+    "cypress:reporter": "node cypress_reporter.js",
+    "kraken:reporter": "node kraken_reporter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-cortes/MISW4103S8.git"
+  },
+  "keywords": [
+    "kraken",
+    "misw4103",
+    "autometion",
+    "e2e",
+    "vrt"
+  ],
+  "author": "Santiago Cortes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-cortes/MISW4103S8/issues"
+  },
+  "homepage": "https://github.com/s-cortes/MISW4103S8#readme",
+  "dependencies": {
+    "resemblejs": "^4.1.0"
+  }
+}

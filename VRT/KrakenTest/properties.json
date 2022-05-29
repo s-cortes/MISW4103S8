@@ -1,0 +1,7 @@
+{
+    "USERNAME1": "",
+    "PASSWORD1": "",
+    "URL": "http://localhost:2369/ghost/#/signin",
+    "SETTINGS_URL": "http://localhost:2369/ghost/#/settings/labs",
+    "HOMEPAGE": "http://localhost:2369"
+}
