@@ -1,0 +1,32 @@
+{
+  "name": "cypress-test-suite",
+  "version": "1.0.0",
+  "description": "Pruebas E2E con Generación de Datos",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-cortes/MISW4103S8.git"
+  },
+  "keywords": [
+    "cypress",
+    "misw4103",
+    "autometion",
+    "e2e"
+  ],
+  "author": "Santiago Cortes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-cortes/MISW4103S8/issues"
+  },
+  "homepage": "https://github.com/s-cortes/MISW4103S8#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^6.3.1",
+    "cypress": "^9.6.0"
+  },
+  "dependencies": {
+    "mockaroo": "^0.1.7"
+  }
+}
