@@ -108,3 +108,12 @@ dist
 
 # Kraken
 reports/
+
+# Cypress Reports
+screenshots/
+
+# Kraken Reports
+*/reports
+
+results/
+resultsKraken/
