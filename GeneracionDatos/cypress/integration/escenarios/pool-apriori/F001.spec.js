@@ -67,7 +67,30 @@ describe('Funcionalidad F001: Creación y Edición de Posts', () => {
 
         });
         it('F001E05.PA: ', () => {
+            // GIVEN (additional to the login and dashboard navigation)
+            // that the admin navitages to the dashboard, and selects the option
+            // to create a post, and writes a title and the content for the post
+            articlesPositivePool.forEach(articlePoolObj => {
+                post.navigateToEditor();
+                let title = articlePoolObj.title;
+                let article = articlePoolObj.content;
 
+                post.writeTitle(title);
+                post.writeArticle(article);
+    
+                // WHEN the admin opens the editor settings menu, and selects the
+                // excerpt and write the text
+                post.publishNow();
+                post.exitEditorWithBackButton();
+
+                // THEN the post should appear as the first item in the
+                // list, and the post title should be published post
+                post.getPostFromListByTitle(title, (pItem) => {
+                    pItem.click();                
+                });
+
+                post.readTitle((txt) => expect(txt).to.equal(title));
+            });
         });
         it('F001E07.PA: ', () => {
             articlesPositivePool.forEach(articlePoolObj => {
@@ -99,7 +122,27 @@ describe('Funcionalidad F001: Creación y Edición de Posts', () => {
                
         });
         it('F001E06.PA: ', () => {
+            // GIVEN (additional to the login and dashboard navigation)
+            // that the admin navitages to the dashboard, and selects the option
+            // to create a post, and writes a title for the post
+            articlesNegativePool.forEach((articlePoolObj, index) => {
+                let posArticleObj = articlesPositivePool[index];
+                post.navigateToEditor();
 
+                // WHEN the admin opens write a negative title and publishes the post
+                post.writeTitle(articlePoolObj.title);
+                post.writeArticle(posArticleObj.content);
+                post.publishNow();
+    
+                post.exitEditorWithBackButton();
+
+                // THEN the post should not appear as the first item in the
+                // list, and the post title should be published post
+                post.getPostFromListByTitle(title, (pItem) => {
+                    pItem.click();                
+                    expect(pItem).to.not.exist;
+                });
+            });
         });
         it('F001E08.PA: ', () => {
             articlesNegativePool.forEach((articlePoolObj, index) => {
