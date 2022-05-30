@@ -166,8 +166,6 @@ describe('Funcionalidad F009: Creación y Ediciónde Tags', () => {
                 //Then go to the tags list
                 dashboard.getTags();
 
-                tag.getInternalTags()
-
                 //And Confirm the tag name is equal to the saved tag
                 tag.getTagFromListByName(name, (tItem) => {
                     tItem.click();

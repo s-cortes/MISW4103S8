@@ -65,7 +65,27 @@ describe('Funcionalidad F001: Creación y Edición de Posts', () => {
 
         });
         it('F001E05.EA: ', () => {
+            // GIVEN (additional to the login and dashboard navigation)
+            // that the admin navitages to the dashboard, and selects the option
+            // to create a post, and writes a title with 25 words 
+            post.navigateToEditor();
+            let title = faker.lorem.words(25);
+            let article = faker.lorem.paragraph(3);
 
+            post.writeTitle(title);
+            post.writeArticle(article);
+
+            //When select the publish option and go to the post list
+            post.publishNow();
+            post.exitEditorWithBackButton();
+
+            // THEN the post should appear as the first item in the
+            // list, and the post title should be published post
+            post.getPostFromListByTitle(title, (pItem) => {
+                pItem.click();                
+            });
+
+            post.readTitle((txt) => expect(txt).to.equal(title));
         });
         it('F001E07.EA: ', () => {
             // GIVEN (additional to the login and dashboard navigation)
@@ -119,6 +139,26 @@ describe('Funcionalidad F001: Creación y Edición de Posts', () => {
             post.readArticle((txt) => expect(txt).to.equal(paragraph));
         });
         it('F001E06.EA: ', () => {
+            // GIVEN (additional to the login and dashboard navigation)
+            // that the admin navitages to the dashboard, and selects the option
+            // to create a post, and writes a title with 25 words 
+            post.navigateToEditor();
+            let title = faker.lorem.words(250);
+            let article = faker.lorem.paragraph(3);
+
+            post.writeTitle(title);
+            post.writeArticle(article);
+
+            //When select the publish option and go to the post list
+            post.publishNow();
+            post.exitEditorWithBackButton();
+
+            // THEN the post should appear as the first item in the
+            // list, and the post title should be published post
+            post.getPostFromListByTitle(title, (pItem) => {
+                pItem.click();                
+                expect(pItem).to.not.exist;
+            });
 
         });
         it('F001E08.EA: ', () => {
